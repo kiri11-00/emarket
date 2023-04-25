@@ -42,9 +42,13 @@
         <div id="okno3">
          
           <form action="send_email.php" method="post">
-            <label for="email">Электронная почта:</label>
-            <input type="email" id="email" name="email">
-            <button type="submit" id="forgot">Отправить на почту</button>
+            <label>Тема сообщения:</label>
+            <input type="text" name="subject" required><br><br>
+            <label>Сообщение:</label>
+            <textarea name="message" required></textarea><br><br>
+            <label>Ваш электронный адрес:</label>
+            <input type="email" name="email" required><br><br>
+            <input type="submit" name="submit" value="Отправить">
           </form>
           <a href="#" class="close">Закрыть окно</a>
         </div>
