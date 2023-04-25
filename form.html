@@ -26,13 +26,13 @@
       <div id="zatemnenie">
         <div id="okno">
           <label for="first-name">Имя:</label>
-          <input type="text" id="first-name" name="first-name" required maxlength="11">
+          <input type="text" id="first-name" name="first-name">
           <label for="last-name">Фамилия:</label>
-          <input type="text" id="last-name" name="last-name" required maxlength="11">
+          <input type="text" id="last-name" name="last-name">
           <label for="email">Электронная почта:</label>
-          <input type="email" id="email" name="email" required maxlength="11">
+          <input type="email" id="email" name="email">
           <label for="password">Пароль:</label>
-          <input type="password" id="password" name="password" required maxlength="11">
+          <input type="password" id="password" name="password">
           <button type="submit" id="register-btn" >Зарегистрироваться</button> 
           <a href="#" class="close">Закрыть окно</a>
         </div>
@@ -41,15 +41,9 @@
 <div id="zatemnenie3">
         <div id="okno3">
          
-          <form action="send_email.php" method="post">
-            <label>Тема сообщения:</label>
-            <input type="text" name="subject" required><br><br>
-            <label>Сообщение:</label>
-            <textarea name="message" required></textarea><br><br>
-            <label>Ваш электронный адрес:</label>
-            <input type="email" name="email" required><br><br>
-            <input type="submit" name="submit" value="Отправить">
-          </form>
+          <label for="email">Электронная почта:</label>
+          <input type="email" id="email" name="email">
+           <button type="submit" id="forgot" >Отправить на почту</button> 
           <a href="#" class="close">Закрыть окно</a>
         </div>
       </div>
@@ -131,35 +125,35 @@ vhod.addEventListener("click", function(event) {
 
 
 
-// // Подключаем библиотеку SMTP.js
-// const { Email } = require("smtp-js");
+// Подключаем библиотеку SMTP.js
+const { Email } = require("smtp-js");
 
-// // Обработчик события для кнопки "Отправить на почту"
-//  const forgot = document.getElementById("#forgot").addEventListener("click", function (event) {
-//   // Получаем значение поля "email"
-//   const email = document.getElementById("email").value;
+// Обработчик события для кнопки "Отправить на почту"
+ const forgot = document.getElementById("#forgot").addEventListener("click", function (event) {
+  // Получаем значение поля "email"
+  const email = document.getElementById("email").value;
 
-//   // Настройки для отправки письма через Mail.ru
-//   const config = {
-//     // Сервер и порт для отправки письма через Mail.ru
-//     host: "smtp.mail.ru",
-//     port: 465,
-//     // Учетные данные Mail.ru
-//     user: "@mail.ru",
-//     pass: "",
-//     // Информация о письме
-//     from: "kiri11-00@mail.ru",
-//     to: email,
-//     subject: 'Привет',
-//     body: 'Приветствую!',
-//   };
+  // Настройки для отправки письма через Mail.ru
+  const config = {
+    // Сервер и порт для отправки письма через Mail.ru
+    host: "smtp.mail.ru",
+    port: 465,
+    // Учетные данные Mail.ru
+    user: "kiri11-00@mail.ru",
+    pass: "4PSrde9Tr",
+    // Информация о письме
+    from: "kiri11-00@mail.ru",
+    to: email,
+    subject: 'Привет',
+    body: 'Приветствую!',
+  };
 
-//   // Отправляем письмо
-//   Email.send(config).then(
-//     message => alert('Письмо отправлено!'),
-//     error => console.error(error)
-//   );
-// });
+  // Отправляем письмо
+  Email.send(config).then(
+    message => alert('Письмо отправлено!'),
+    error => console.error(error)
+  );
+});
 
 
 
@@ -183,8 +177,8 @@ const transporter = nodemailer.createTransport({
 port: 465,
   // service: 'Gmail',
   auth: {
-   user: '',
- pass: '',
+    user: 'kiri11-00@mail.ru',
+ pass: '4PSrde9Tr',
   }
 });
 
@@ -232,8 +226,6 @@ sendEmailButton.addEventListener('click', function(event) {
 
 </body>
 </html>
-
-
 
 
 
