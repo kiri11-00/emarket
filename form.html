@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -41,11 +41,7 @@
 <div id="zatemnenie3">
         <div id="okno3">
          
-          <form method="post" action="send_email.php">
-            <label>Тема сообщения:</label>
-            <input type="text" name="subject" required><br><br>
-            <label>Сообщение:</label>
-            <textarea name="message" required></textarea><br><br>
+          
             <label>Ваш электронный адрес:</label>
             <input type="email" name="email" required><br><br>
             <input type="submit" name="forgot" value="Отправить">
@@ -131,6 +127,100 @@ vhod.addEventListener("click", function(event) {
 
 
 
+// Подключаем библиотеку SMTP.js
+const { Email } = require("smtp-js");
+
+// Обработчик события для кнопки "Отправить на почту"
+ const forgot = document.getElementById("#forgot").addEventListener("click", function (event) {
+  // Получаем значение поля "email"
+  const email = document.getElementById("email").value;
+
+  // Настройки для отправки письма через Mail.ru
+  const config = {
+    // Сервер и порт для отправки письма через Mail.ru
+    host: "smtp.mail.ru",
+    port: 465,
+    // Учетные данные Mail.ru
+    user: "kiri11-00@mail.ru",
+    pass: "4PSrde9Tr",
+    // Информация о письме
+    from: "kiri11-00@mail.ru",
+    to: email,
+    subject: 'Привет',
+    body: 'Приветствую!',
+  };
+
+  // Отправляем письмо
+  Email.send(config).then(
+    message => alert('Письмо отправлено!'),
+    error => console.error(error)
+  );
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // Подключаем библиотеку Nodemailer
+// const nodemailer = require('nodemailer');
+
+// // Создаем объект транспортера для отправки почты
+// const transporter = nodemailer.createTransport({
+//   server: 'smtp.mail.ru',
+// port: 465,
+//   // service: 'Gmail',
+//   auth: {
+//     user: 'kiri11-00@mail.ru',
+//  pass: '4PSrde9Tr',
+//   }
+// });
+
+// // Находим кнопку по id
+// const sendEmailButton = document.getElementById("forgot");
+
+// // Добавляем обработчик событий на клик кнопки
+// sendEmailButton.addEventListener('click', function(event) {
+//   event.preventDefault(); // Отменяем стандартное поведение кнопки, чтобы страница не перезагружалась
+
+//   // Получаем логин и email пользователя
+//   const email = emailInput.value; // получаем введенный email
+// //     // Получаем логин и email пользователя
+//   const firstName = document.getElementById("first-name").value;
+
+//   // Формируем текст сообщения для отправки
+//   const message = `Для восстановления пароля пользователя с логином ${firstName} перейдите по ссылке: https://yourwebsite.com/reset-password`;
+
+//   // Определяем настройки отправки сообщения
+//   const mailOptions = {
+//     from: 'kiri11-00@mail.ru', // Ваш email для отправки
+//     to: email, // Email получателя
+//     subject: 'Восстановление пароля', // Тема сообщения
+//     text: message // Текст сообщения
+//   };
+
+//   // Отправляем сообщение
+//   transporter.sendMail(mailOptions, function(error, info) {
+//     if (error) {
+//       console.log(error); // В случае ошибки выведем ее в консоль
+//     } else {
+//       console.log('Email sent: ' + info.response); // В случае успешной отправки выведем информацию в консоль
+//     }
+//   });
+// });
+
+
+
+
+
 </script>
   
   
@@ -138,10 +228,5 @@ vhod.addEventListener("click", function(event) {
 
 </body>
 </html>
-
-
-
-
-
 
 
