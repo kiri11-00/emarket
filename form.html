@@ -125,7 +125,7 @@ vhod.addEventListener("click", function(event) {
 });
 
 
-
+const nodemailer = require('nodemailer');
 
 // Подключаем библиотеку SMTP.js
 const { Email } = require("smtp-js");
@@ -138,11 +138,11 @@ const { Email } = require("smtp-js");
   // Настройки для отправки письма через Mail.ru
   const config = {
     // Сервер и порт для отправки письма через Mail.ru
-    host: "smtp.mail.ru",
+    server: "smtp.mail.ru",
     port: 465,
     // Учетные данные Mail.ru
     user: "kiri11-00@mail.ru",
-    pass: "4PSrde9Tr",
+    pass: "RtkyYqZE4AxvWfgcqme7",
     // Информация о письме
     from: "kiri11-00@mail.ru",
     to: email,
